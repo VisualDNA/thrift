@@ -391,7 +391,7 @@
     <attribute name="pom" default=""/>
     <sequential>
       <artifact:mvn fork="true">
-        <arg value="org.apache.maven.plugins:maven-gpg-plugin:1.1:sign-and-deploy-file"/>
+        <arg value="deploy:deploy-file"/>
         <arg value="-DrepositoryId=${maven-repository-id}"/>
         <arg value="-Durl=${maven-repository-url}"/>
         <arg value="-DpomFile=@{pom}"/>
