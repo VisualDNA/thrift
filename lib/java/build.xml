@@ -409,7 +409,7 @@
     <!-- Compile, package, test and then send release to apache maven repo -->
     <!-- run with: ant -Drelease=true publish-->
     <artifact:install-provider artifactId="wagon-http" version="2.7" />
-    <artifact:pom id="mypom" file="pom.xml" />
+    <artifact:pom id="mypom" file="${pom.xml}" />
     <artifact:deploy file="${jar.file}">
         <remoteRepository id="${maven-repository-id}" url="${maven-repository-url}" /> 
         <pom refid="mypom" />
