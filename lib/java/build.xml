@@ -408,9 +408,17 @@
   <target name="publish" depends="clean,init,dist,javadoc,pack.src">
     <!-- Compile, package, test and then send release to apache maven repo -->
     <!-- run with: ant -Drelease=true publish-->
-    <signAndDeploy file="${pom.xml}" packaging="pom" classifier="" pom="${pom.xml}"/>
+    <artifact:install-provider artifactId="wagon-http" version="2.7" />
+    <artifact:pom id="mypom" file="pom.xml" />
+    <artifact:deploy file="${jar.file}">
+        <remoteRepository id="${maven-repository-id}" url="${maven-repository-url}" /> 
+        <pom refid="mypom" />
+        <attach file="${javadoc.jar.file}" classifier="javadoc" />
+        <attach file="${source.jar.file}" classifier="sources" />
+    </artifact:deploy>
+    <!--    <signAndDeploy file="${pom.xml}" packaging="pom" classifier="" pom="${pom.xml}"/>
     <signAndDeploy file="${jar.file}" packaging="jar" classifier="" pom="${pom.xml}"/>
     <signAndDeploy file="${javadoc.jar.file}" packaging="jar" classifier="javadoc" pom="${pom.xml}"/>
-    <signAndDeploy file="${source.jar.file}" packaging="src" classifier="sources" pom="${pom.xml}"/>
+    <signAndDeploy file="${source.jar.file}" packaging="src" classifier="sources" pom="${pom.xml}"/>-->
   </target>
 </project>
