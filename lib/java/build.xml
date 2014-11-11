@@ -413,7 +413,6 @@
     <artifact:deploy file="${jar.file}">
         <remoteRepository id="${maven-repository-id}" url="${maven-repository-url}" /> 
         <pom refid="mypom" />
-        <attach file="${jar.file}" />
         <attach file="${javadoc.jar.file}" classifier="javadoc" />
         <attach file="${source.jar.file}" classifier="sources" />
     </artifact:deploy>
