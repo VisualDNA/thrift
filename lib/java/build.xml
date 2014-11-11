@@ -410,9 +410,10 @@
     <!-- run with: ant -Drelease=true publish-->
     <artifact:install-provider artifactId="wagon-http" version="2.7" />
     <artifact:pom id="mypom" file="${pom.xml}" />
-    <artifact:deploy file="${jar.file}" settingsFile="/var/lib/jenkins/.m2/settings.xml" >
+    <artifact:deploy file="${jar.file}">
         <remoteRepository id="${maven-repository-id}" url="${maven-repository-url}" /> 
         <pom refid="mypom" />
+        <attach file="${jar.file}" />
         <attach file="${javadoc.jar.file}" classifier="javadoc" />
         <attach file="${source.jar.file}" classifier="sources" />
     </artifact:deploy>
