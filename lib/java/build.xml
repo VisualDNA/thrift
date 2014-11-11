@@ -391,6 +391,8 @@
     <attribute name="pom" default=""/>
     <sequential>
       <artifact:mvn fork="true">
+        <arg value="-s"/>
+        <arg value="/var/lib/jenkins/.m2/settings.xml"/>
         <arg value="deploy:deploy-file"/>
         <arg value="-DrepositoryId=${maven-repository-id}"/>
         <arg value="-Durl=${maven-repository-url}"/>
