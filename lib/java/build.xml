@@ -392,7 +392,7 @@
     <sequential>
       <artifact:mvn fork="true">
         <arg value="deploy:deploy-file"/>
-        <!--<arg value="-DrepositoryId=${maven-repository-id}"/>-->
+        <arg value="-DrepositoryId=${maven-repository-id}"/>
         <arg value="-Durl=${maven-repository-url}"/>
         <arg value="-DpomFile=@{pom}"/>
         <arg value="-Dfile=@{file}"/>
