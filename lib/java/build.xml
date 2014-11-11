@@ -398,7 +398,6 @@
         <arg value="-Dfile=@{file}"/>
         <arg value="-Dclassifier=@{classifier}"/>
         <arg value="-Dpackaging=@{packaging}"/>
-        <arg value="-Pgpg"/>
       </artifact:mvn>
     </sequential>
   </macrodef>
