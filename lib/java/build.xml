@@ -402,7 +402,7 @@
     </sequential>
   </macrodef>
 
-  <target name="publish" depends="clean,init,test,dist,javadoc,pack.src">
+  <target name="publish" depends="clean,init,dist,javadoc,pack.src">
     <!-- Compile, package, test and then send release to apache maven repo -->
     <!-- run with: ant -Drelease=true publish-->
     <signAndDeploy file="${pom.xml}" packaging="pom" classifier="" pom="${pom.xml}"/>
