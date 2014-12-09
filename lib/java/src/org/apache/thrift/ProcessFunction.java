@@ -48,15 +48,11 @@ public abstract class ProcessFunction<I, T extends TBase> {
       return;
     }
 
-    if(!isOneway()) {
-      oprot.writeMessageBegin(new TMessage(getMethodName(), TMessageType.REPLY, seqid));
-      result.write(oprot);
-      oprot.writeMessageEnd();
-      oprot.getTransport().flush();
-    }
+    oprot.writeMessageBegin(new TMessage(getMethodName(), TMessageType.REPLY, seqid));
+    result.write(oprot);
+    oprot.writeMessageEnd();
+    oprot.getTransport().flush();
   }
-
-  protected abstract boolean isOneway();
 
   public abstract TBase getResult(I iface, T args) throws TException;
 
